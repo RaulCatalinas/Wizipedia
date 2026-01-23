@@ -74,4 +74,13 @@ class ViewController: UIViewController, UITableViewDataSource,
         tableView.reloadData()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailViewController = segue.destination as! DetailViewController
+        let indexPath = tableView.indexPathForSelectedRow!
+        let character = characters[indexPath.row]
+        
+        detailViewController.character = character
+        self.tableView.deselectRow(at: indexPath, animated: false)
+    }
+
 }

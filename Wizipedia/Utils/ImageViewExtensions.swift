@@ -10,6 +10,7 @@ import UIKit
 
 extension UIImageView {
     func loadFromInternet(url: String) {
+        self.image = UIImage.noImagePlaceholder
         guard let url = URL(string: url) else { return }
 
         DispatchQueue.global().async { [weak self] in

@@ -22,7 +22,7 @@ class Api {
         }
     }
 
-    static func getCharcter(id: String) async -> Character? {
+    static func getCharacter(id: String) async -> Character? {
         do {
             let (res, _) = try await URLSession.shared.data(
                 from: URL(string: "\(API_BASE_URL)/character/\(id)")!
