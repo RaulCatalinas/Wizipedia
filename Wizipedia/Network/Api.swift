@@ -22,20 +22,6 @@ class Api {
         }
     }
 
-    static func getCharacter(id: String) async -> Character? {
-        do {
-            let (res, _) = try await URLSession.shared.data(
-                from: URL(string: "\(API_BASE_URL)/character/\(id)")!
-            )
-
-            return try JSONDecoder().decode(Characters.self, from: res)[0]
-        } catch {
-            print("Error getting character: \(error)")
-
-            return nil
-        }
-    }
-
     static func getCharacters(house: House) async -> Characters {
         do {
             let (res, _) = try await URLSession.shared.data(
