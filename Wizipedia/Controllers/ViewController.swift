@@ -7,17 +7,27 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource,
+    UISearchBarDelegate
+{
     @IBOutlet weak var tableView: UITableView!
 
     var characters: Characters = []
+    var allCharacters: Characters = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.dataSource = self
 
+        let searchController = UISearchController(searchResultsController: nil)
+
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+
         Task {
-            characters = await Api.getCharacters()
+            allCharacters = await Api.getCharacters()
+            characters = allCharacters
 
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -44,6 +54,24 @@ class ViewController: UIViewController, UITableViewDataSource {
         cell.configure(with: characters[indexPath.row])
 
         return cell
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            characters = allCharacters
+        } else {
+            characters = allCharacters.filter {
+                character in
+                character.name.localizedCaseInsensitiveContains(searchText)
+                    || character.house.rawValue
+                        .localizedCaseInsensitiveContains(
+                            searchText
+                        )
+
+            }
+        }
+
+        tableView.reloadData()
     }
 
 }
