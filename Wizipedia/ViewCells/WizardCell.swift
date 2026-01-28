@@ -9,7 +9,9 @@ import UIKit
 
 class WizardCell: UITableViewCell {
     @IBOutlet weak var wizardImageView: UIImageView!
-    @IBOutlet weak var wizardBasicInfoLabel: UILabel!
+    @IBOutlet weak var wizardNameLabel: UILabel!
+    @IBOutlet weak var wizardActorLabel: UILabel!
+    @IBOutlet weak var wizardHouseLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +25,19 @@ class WizardCell: UITableViewCell {
     }
 
     func configure(with wizard: Character) {
+        wizardImageView.addBorderColor(
+            wizard.alive ? UIColor.green : UIColor.red,
+        )
+
         wizardImageView.loadFromInternet(url: wizard.image)
-        wizardBasicInfoLabel.text =
-            "\(wizard.name)\(wizard.house.rawValue.isEmpty ? "" : " - \(wizard.house.rawValue)")"
+        wizardNameLabel.text = wizard.name
+        wizardActorLabel.text = wizard.actor
+
+        let house = HouseEnum.fromString(wizard.house.rawValue)
+
+        wizardHouseLabel.text = house.displayName
+        wizardHouseLabel.backgroundColor = house.backgroundColor
+        wizardHouseLabel.textColor = house.foregroundColor
     }
+
 }

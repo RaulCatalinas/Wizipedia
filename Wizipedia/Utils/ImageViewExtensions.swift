@@ -23,4 +23,16 @@ extension UIImageView {
             }
         }
     }
+
+    func addBorderColor(
+        _ color: UIColor,
+        cornerRadius: CGFloat = 10.0,
+        borderWidth: CGFloat = 2.0,
+        useClipsToBounds: Bool = true
+    ) {
+        layer.borderColor = color.cgColor
+        layer.borderWidth = borderWidth
+        layer.cornerRadius = cornerRadius
+        clipsToBounds = useClipsToBounds
+    }
 }

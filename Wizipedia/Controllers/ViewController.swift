@@ -11,7 +11,7 @@ class ViewController: UIViewController, UITableViewDataSource,
     UISearchBarDelegate
 {
     @IBOutlet weak var tableView: UITableView!
-
+    
     var characters: Characters = []
     var allCharacters: Characters = []
 
@@ -82,5 +82,4 @@ class ViewController: UIViewController, UITableViewDataSource,
         detailViewController.character = character
         self.tableView.deselectRow(at: indexPath, animated: false)
     }
-
 }
