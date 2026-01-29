@@ -25,7 +25,7 @@ class Api {
     static func getCharacters(house: House) async -> Characters {
         do {
             let (res, _) = try await URLSession.shared.data(
-                from: URL(string: "\(API_BASE_URL)/characters/house/\(house)")!
+                from: URL(string: "\(API_BASE_URL)/characters/house/\(house.rawValue)")!
             )
 
             return try JSONDecoder().decode(Characters.self, from: res)
