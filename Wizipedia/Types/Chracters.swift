@@ -1,22 +1,15 @@
-//
-//  Chracters.swift
-//  Wizipedia
-//
-//  Created by Tardes on 23/1/26.
-//
-
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let characters = try? JSONDecoder().decode(Characters.self, from: jsonData)
+//   let chacters = try? JSONDecoder().decode(Chacters.self, from: jsonData)
 
 import Foundation
 
-// MARK: - Character
+// MARK: - Chacter
 struct Character: Codable {
     let id, name: String
     let alternateNames: [String]
-    let species: String
+    let species: Species
     let gender: Gender
     let house: House
     let dateOfBirth: String?
@@ -36,9 +29,7 @@ struct Character: Codable {
     enum CodingKeys: String, CodingKey {
         case id, name
         case alternateNames = "alternate_names"
-        case species, gender, house, dateOfBirth, yearOfBirth, wizard, ancestry,
-            eyeColour, hairColour, wand, patronus, hogwartsStudent,
-            hogwartsStaff, actor
+        case species, gender, house, dateOfBirth, yearOfBirth, wizard, ancestry, eyeColour, hairColour, wand, patronus, hogwartsStudent, hogwartsStaff, actor
         case alternateActors = "alternate_actors"
         case alive, image
     }
@@ -57,7 +48,6 @@ enum Ancestry: String, Codable {
 
 enum EyeColour: String, Codable {
     case amber = "amber"
-    case beady = "beady"
     case black = "black"
     case blue = "blue"
     case brown = "brown"
@@ -68,15 +58,13 @@ enum EyeColour: String, Codable {
     case hazel = "hazel"
     case orange = "orange"
     case paleSilvery = "pale, silvery"
-    case scarlet = "Scarlet"
-    case silver = "silver"
+    case red = "red"
     case white = "white"
     case yellow = "yellow"
     case yellowish = "yellowish"
 }
 
 enum Gender: String, Codable {
-    case empty = ""
     case female = "female"
     case male = "male"
 }
@@ -91,9 +79,7 @@ enum HairColour: String, Codable {
     case dull = "dull"
     case empty = ""
     case ginger = "ginger"
-    case green = "green"
     case grey = "grey"
-    case purple = "purple"
     case red = "red"
     case sandy = "sandy"
     case silver = "silver"
@@ -121,7 +107,6 @@ enum Patronus: String, Codable {
     case nonCorporeal = "Non-Corporeal"
     case otter = "otter"
     case persianCat = "persian cat"
-    case phoenix = "Phoenix"
     case stag = "stag"
     case swan = "swan"
     case tabbyCat = "tabby cat"
@@ -129,9 +114,29 @@ enum Patronus: String, Codable {
     case wolf = "wolf"
 }
 
+enum Species: String, Codable {
+    case acromantula = "acromantula"
+    case cat = "cat"
+    case centaur = "centaur"
+    case dragon = "dragon"
+    case ghost = "ghost"
+    case giant = "giant"
+    case goblin = "goblin"
+    case halfGiant = "half-giant"
+    case halfHuman = "half-human"
+    case hippogriff = "hippogriff"
+    case houseELF = "house-elf"
+    case human = "human"
+    case owl = "owl"
+    case poltergeist = "poltergeist"
+    case threeHeadedDog = "three-headed dog"
+    case vampire = "vampire"
+    case werewolf = "werewolf"
+}
+
 // MARK: - Wand
 struct Wand: Codable {
-    let wood: String
+    let wood: Wood
     let core: Core
     let length: Double?
 }
@@ -140,9 +145,30 @@ enum Core: String, Codable {
     case dragonHeartstring = "dragon heartstring"
     case empty = ""
     case phoenixFeather = "phoenix feather"
-    case phoenixTailFeather = "phoenix tail feather"
     case unicornHair = "unicorn hair"
-    case unicornTailHair = "unicorn tail hair"
+    case unicornTailHair = "unicorn tail-hair"
+}
+
+enum Wood: String, Codable {
+    case ash = "ash"
+    case birch = "birch"
+    case cedar = "cedar"
+    case cherry = "cherry"
+    case chestnut = "chestnut"
+    case cypress = "cypress"
+    case elm = "elm"
+    case empty = ""
+    case fir = "fir"
+    case hawthorn = "hawthorn"
+    case holly = "holly"
+    case hornbeam = "hornbeam"
+    case larch = "larch"
+    case mahogany = "mahogany"
+    case oak = "oak"
+    case vine = "vine"
+    case walnut = "walnut"
+    case willow = "willow"
+    case yew = "yew"
 }
 
 typealias Characters = [Character]

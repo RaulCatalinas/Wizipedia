@@ -11,25 +11,42 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var wizardImageView: UIImageView!
     @IBOutlet weak var wizardBasicInfoLabel: UILabel!
     @IBOutlet weak var wizardSpellInfoLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    var character: Character!
+    var characterName: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        wizardImageView.loadFromInternet(url: character.image)
-        wizardBasicInfoLabel.text = """
-                Name: \(character.name)
-                Hair colour: \(character.hairColour)
-                \(character.house.rawValue.isEmpty ? "" : "House: \(character.house.rawValue)")
-                \(character.patronus.rawValue.isEmpty ? "" : "Patronus: \(character.patronus.rawValue)")
-            """
+        Task {
+            defer {
+                activityIndicator.stopAnimating()
+                activityIndicator.isHidden = true
+            }
 
-        wizardSpellInfoLabel.text = """
-                Wood: \(character.wand.wood)
-                \(character.wand.core.rawValue.isEmpty ? "" : "Core: \(character.wand.core.rawValue)")
-                Length: \(character.wand.length?.description ?? "---") in
-            """
+            activityIndicator.startAnimating()
+            activityIndicator.isHidden = false
+
+            let character = await Api.getDetails(for: characterName)
+
+            guard let character = character else { return }
+
+            DispatchQueue.main.async {
+                self.wizardImageView.loadFromInternet(url: character.image)
+                self.wizardBasicInfoLabel.text = """
+                        Name: \(character.name)
+                        Hair colour: \(character.hairColour)
+                        \(character.house.rawValue.isEmpty ? "" : "House: \(character.house.rawValue)")
+                        \(character.patronus.rawValue.isEmpty ? "" : "Patronus: \(character.patronus.rawValue)")
+                    """
+
+                self.wizardSpellInfoLabel.text = """
+                        Wood: \(character.wand.wood)
+                        \(character.wand.core.rawValue.isEmpty ? "" : "Core: \(character.wand.core.rawValue)")
+                        Length: \(character.wand.length?.description ?? "---") in
+                    """
+            }
+        }
     }
 
     /*

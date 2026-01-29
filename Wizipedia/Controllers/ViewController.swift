@@ -11,7 +11,7 @@ class ViewController: UIViewController, UITableViewDataSource,
     UISearchBarDelegate
 {
     @IBOutlet weak var tableView: UITableView!
-    
+
     var characters: Characters = []
     var allCharacters: Characters = []
 
@@ -77,9 +77,9 @@ class ViewController: UIViewController, UITableViewDataSource,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailViewController = segue.destination as! DetailViewController
         let indexPath = tableView.indexPathForSelectedRow!
-        let character = characters[indexPath.row]
-        
-        detailViewController.character = character
+        let characterName = characters[indexPath.row].name
+
+        detailViewController.characterName = characterName
         self.tableView.deselectRow(at: indexPath, animated: false)
     }
 }

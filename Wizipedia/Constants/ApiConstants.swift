@@ -7,4 +7,4 @@
 
 import Foundation
 
-let API_BASE_URL = "https://hp-api.onrender.com/api"
+let API_BASE_URL = "https://potterhead-api.vercel.app/api"
