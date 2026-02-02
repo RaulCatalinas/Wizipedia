@@ -12,4 +12,19 @@ extension UIView {
         layer.cornerRadius = radious
         clipsToBounds = true
     }
+
+    func applyCardStyle(
+        cornerRadius: CGFloat = 12,
+        shadowColor: UIColor = .black,
+        shadowOpacity: Float = 0.1,
+        shadowOffset: CGSize = CGSize(width: 0, height: 4),
+        shadowRadius: CGFloat = 6
+    ) {
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = false
+
+        layer.shadowColor = shadowColor.cgColor
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowOffset = shadowOffset
+    }
 }
