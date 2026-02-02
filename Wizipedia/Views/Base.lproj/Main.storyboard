@@ -198,7 +198,88 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iiU-sD-urj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1290.8396946564885" y="467.6056338028169"/>
+            <point key="canvasLocation" x="1320" y="-682"/>
+        </scene>
+        <!--Media View Controller-->
+        <scene sceneID="V02-Wg-0Yh">
+            <objects>
+                <viewController id="7Ic-0R-ERt" customClass="MediaViewController" customModule="Wizipedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bhw-2m-jEn">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WDb-v2-afM">
+                                <rect key="frame" x="124" y="172" width="124" height="32"/>
+                                <segments>
+                                    <segment title="Movies"/>
+                                    <segment title="Books"/>
+                                </segments>
+                                <connections>
+                                    <action selector="toggleView:" destination="7Ic-0R-ERt" eventType="valueChanged" id="nTl-io-PHe"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="213" estimatedRowHeight="213" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mUA-UN-8yQ">
+                                <rect key="frame" x="0.0" y="220" width="393" height="632"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MediaViewCell" rowHeight="213" id="Tk2-FR-yq1" customClass="MediaViewCell" customModule="Wizipedia" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="213"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tk2-FR-yq1" id="4ZR-bS-1Lx">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="213"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="599-tR-05R">
+                                                    <rect key="frame" x="156" y="0.0" width="108" height="141"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Media descrition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yK-8n-L6h">
+                                                    <rect key="frame" x="8" y="183" width="385" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfq-DG-JVn">
+                                                    <rect key="frame" x="8" y="139" width="385" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mediaDescriptionLabel" destination="3yK-8n-L6h" id="bJ0-vs-aBM"/>
+                                            <outlet property="mediaImageView" destination="599-tR-05R" id="JgB-X9-crc"/>
+                                            <outlet property="mediaTitleLabel" destination="vfq-DG-JVn" id="z5m-mS-7U6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mGk-Hm-PMJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mUA-UN-8yQ" firstAttribute="top" secondItem="WDb-v2-afM" secondAttribute="bottom" constant="17" id="FgY-X8-BLB"/>
+                            <constraint firstItem="WDb-v2-afM" firstAttribute="leading" secondItem="mGk-Hm-PMJ" secondAttribute="leading" constant="124" id="QYX-rJ-71H"/>
+                            <constraint firstItem="mGk-Hm-PMJ" firstAttribute="trailing" secondItem="WDb-v2-afM" secondAttribute="trailing" constant="145" id="SBG-p8-UAC"/>
+                            <constraint firstItem="mUA-UN-8yQ" firstAttribute="leading" secondItem="mGk-Hm-PMJ" secondAttribute="leading" id="X7u-Aj-9im"/>
+                            <constraint firstAttribute="bottom" secondItem="mUA-UN-8yQ" secondAttribute="bottom" id="m6V-Zp-83x"/>
+                            <constraint firstItem="mUA-UN-8yQ" firstAttribute="top" secondItem="WDb-v2-afM" secondAttribute="bottom" constant="17" id="qxn-6H-r6e"/>
+                            <constraint firstItem="mUA-UN-8yQ" firstAttribute="trailing" secondItem="mGk-Hm-PMJ" secondAttribute="trailing" id="sob-dI-fVI"/>
+                            <constraint firstItem="WDb-v2-afM" firstAttribute="top" secondItem="mGk-Hm-PMJ" secondAttribute="top" id="xRj-j7-XCx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gDV-d0-73C"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="WDb-v2-afM" id="Jlq-hQ-9b0"/>
+                        <outlet property="tableView" destination="mUA-UN-8yQ" id="hmC-xa-XpU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oah-Ra-Pdp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1527.4809160305342" y="559.85915492957747"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="reC-va-9WW">
@@ -409,14 +490,18 @@
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="z8n-aK-MSY" userLabel="Tap Gesture Recognizer - Spells"/>
-                <tapGestureRecognizer id="fxl-Pu-dyi" userLabel="Tap Gesture Recognizer - Media"/>
+                <tapGestureRecognizer id="fxl-Pu-dyi" userLabel="Tap Gesture Recognizer - Media">
+                    <connections>
+                        <segue destination="7Ic-0R-ERt" kind="show" id="GGk-sK-jeX"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="bQj-4F-N2H" userLabel="Tap Gesture Recognizer - Houses">
                     <connections>
                         <segue destination="e2o-Ny-QlU" kind="show" id="Lfg-hv-jDC"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="471" y="109"/>
+            <point key="canvasLocation" x="715" y="118"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -488,7 +573,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="394.6564885496183" y="-620.42253521126759"/>
+            <point key="canvasLocation" x="-905" y="-682"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="I5e-lE-zhd">
@@ -817,7 +902,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4B-Mi-bPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1177.8625954198474" y="-442.25352112676057"/>
+            <point key="canvasLocation" x="-210" y="-442"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C8w-6H-z1q">
