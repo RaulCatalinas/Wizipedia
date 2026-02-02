@@ -1,8 +1,8 @@
 {
   "editor.codeActionsOnSave": {
     "source.fixAll": "always",
-    "source.organizeImports": "always",
-    "source.sortMembers": "always"
+    "source.organizeImports": "never",
+    "source.sortMembers": "never"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
