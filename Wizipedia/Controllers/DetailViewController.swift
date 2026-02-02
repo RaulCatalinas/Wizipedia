@@ -28,15 +28,8 @@ class DetailViewController: UIViewController {
 
     var characterName: String!
 
-    let dateFormatter = DateFormatter()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        dateFormatter.dateStyle = .full
-        dateFormatter.timeStyle = .full
 
         Task {
             let character = await Api.getDetails(for: characterName)
