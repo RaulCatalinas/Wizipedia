@@ -22,22 +22,32 @@ class MediaViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     func configure(with data: Media, indexPath: IndexPath) {
         switch data {
         case .movies(let movies):
             let movie = movies[indexPath.row]
-            
-            mediaImageView.loadFromInternet(url: movie.poster)
-            mediaTitleLabel.text = movie.title
-            mediaDescriptionLabel.text = movie.runningTime
+
+            setUpUI(
+                imageUrl: movie.poster,
+                title: movie.title,
+                description: movie.runningTime
+            )
 
         case .books(let books):
             let book = books[indexPath.row]
-           
-            mediaImageView.loadFromInternet(url: book.cover)
-            mediaTitleLabel.text = book.title
-            mediaDescriptionLabel.text = book.summary
+
+            setUpUI(
+                imageUrl: book.cover,
+                title: book.title,
+                description: book.summary
+            )
         }
+    }
+
+    private func setUpUI(imageUrl: String, title: String, description: String) {
+        mediaImageView.loadFromInternet(url: imageUrl)
+        mediaTitleLabel.text = title
+        mediaDescriptionLabel.text = description
     }
 }
