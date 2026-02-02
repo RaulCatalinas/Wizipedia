@@ -67,7 +67,7 @@ class DetailViewController: UIViewController {
                 self.wandCoreLabel.text = character.wand.core.rawValue.capitalizingFirstLetter()
                 self.wizardEyeColorLabel.text = character.eyeColour.rawValue.capitalizingFirstLetter()
                 self.wizardhairColorLabel.text = character.hairColour.rawValue.capitalizingFirstLetter()
-                self.wizardBornDateLabel.text = character.dateOfBirth?.capitalizingFirstLetter() ?? "Unknown"
+                self.wizardBornDateLabel.text = character.dateOfBirth?.capitalizingFirstLetter()
             }
         }
 
