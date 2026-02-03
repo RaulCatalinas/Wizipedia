@@ -16,3 +16,11 @@ extension String {
         return first.uppercased() + self.dropFirst()
     }
 }
+
+extension Optional where Wrapped == String {
+    func capitalizingFirstLetter() -> String {
+        guard let value = self else { return "Unknown" }
+
+        return value.capitalizingFirstLetter()
+    }
+}

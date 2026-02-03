@@ -111,12 +111,15 @@ class MediaViewController: UIInputViewController, UITableViewDataSource,
         }
 
         if segue.identifier == "showMovieDetail" {
-            let movieDatailsVC =
+            let movieDetailsVC =
                 segue.destination as! MovieDetailsViewController
 
-            movieDatailsVC.movieID = itemId
+            movieDetailsVC.movieID = itemId
 
         } else if segue.identifier == "showBookDetail" {
+            let bookDetailsVC = segue.destination as! BookDetailsViewController
+
+            bookDetailsVC.bookID = itemId
         }
     }
 
