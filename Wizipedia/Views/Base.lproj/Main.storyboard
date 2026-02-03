@@ -291,10 +291,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEn-NR-WwV">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEn-NR-WwV" userLabel="Safe Area View">
                                 <rect key="frame" x="0.0" y="172" width="393" height="612"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="amg-al-XNh">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No-Image-Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="amg-al-XNh">
                                         <rect key="frame" x="120" y="0.0" width="152" height="202"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="152" id="PTc-lO-QfB"/>
@@ -302,7 +302,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1H1-gp-QxM">
-                                        <rect key="frame" x="323" y="161" width="44" height="35"/>
+                                        <rect key="frame" x="323.33333333333331" y="161" width="43.666666666666686" height="35"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" image="play.fill" catalog="system"/>
                                         <connections>
@@ -347,12 +347,20 @@
                                         <viewLayoutGuide key="contentLayoutGuide" id="XOB-U0-Ihk"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="TmF-j4-TNP"/>
                                     </scrollView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kA9-m6-ORq">
+                                        <rect key="frame" x="8" y="121" width="105" height="75"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="YBx-ka-orm" firstAttribute="top" secondItem="Dk3-He-pKW" secondAttribute="bottom" constant="8" symbolic="YES" id="0bA-CD-GmM"/>
                                     <constraint firstAttribute="bottom" secondItem="YBx-ka-orm" secondAttribute="bottom" constant="-67" id="614-2F-kEj"/>
+                                    <constraint firstItem="amg-al-XNh" firstAttribute="leading" secondItem="kA9-m6-ORq" secondAttribute="trailing" constant="7" id="7nu-4Q-ZhC"/>
                                     <constraint firstItem="1H1-gp-QxM" firstAttribute="top" secondItem="iEn-NR-WwV" secondAttribute="top" constant="161" id="8FO-9v-Kfl"/>
+                                    <constraint firstItem="kA9-m6-ORq" firstAttribute="leading" secondItem="iEn-NR-WwV" secondAttribute="leading" constant="8" id="9MK-X9-VWs"/>
                                     <constraint firstItem="amg-al-XNh" firstAttribute="top" secondItem="iEn-NR-WwV" secondAttribute="top" id="Avv-VU-0KN"/>
                                     <constraint firstAttribute="trailing" secondItem="Dk3-He-pKW" secondAttribute="trailing" id="MgF-NC-t34"/>
                                     <constraint firstItem="Dk3-He-pKW" firstAttribute="top" secondItem="amg-al-XNh" secondAttribute="bottom" constant="20" id="ONW-bn-EZY"/>
@@ -360,8 +368,10 @@
                                     <constraint firstAttribute="trailing" secondItem="YBx-ka-orm" secondAttribute="trailing" id="Xat-8q-vGH"/>
                                     <constraint firstItem="Dk3-He-pKW" firstAttribute="top" secondItem="amg-al-XNh" secondAttribute="bottom" constant="20" id="aRh-42-sr4"/>
                                     <constraint firstAttribute="trailing" secondItem="1H1-gp-QxM" secondAttribute="trailing" constant="26" id="lKa-Zp-Kgv"/>
+                                    <constraint firstItem="Dk3-He-pKW" firstAttribute="top" secondItem="kA9-m6-ORq" secondAttribute="bottom" constant="26" id="pDJ-PQ-BNh"/>
                                     <constraint firstItem="Dk3-He-pKW" firstAttribute="top" secondItem="1H1-gp-QxM" secondAttribute="bottom" constant="26" id="wM5-2Q-COK"/>
                                     <constraint firstItem="1H1-gp-QxM" firstAttribute="leading" secondItem="amg-al-XNh" secondAttribute="trailing" constant="51" id="y6t-pH-tka"/>
+                                    <constraint firstItem="kA9-m6-ORq" firstAttribute="top" secondItem="iEn-NR-WwV" secondAttribute="top" constant="121" id="yan-Ur-Dy7"/>
                                     <constraint firstItem="Dk3-He-pKW" firstAttribute="leading" secondItem="iEn-NR-WwV" secondAttribute="leading" id="zRe-Qu-a5y"/>
                                 </constraints>
                             </view>
@@ -373,13 +383,15 @@
                             <constraint firstItem="fBm-dN-IdP" firstAttribute="trailing" secondItem="iEn-NR-WwV" secondAttribute="trailing" id="T8C-fR-hTB"/>
                             <constraint firstItem="iEn-NR-WwV" firstAttribute="leading" secondItem="fBm-dN-IdP" secondAttribute="leading" id="tJS-7Z-g2Y"/>
                             <constraint firstItem="fBm-dN-IdP" firstAttribute="bottom" secondItem="iEn-NR-WwV" secondAttribute="bottom" id="wnk-jX-eV7"/>
+                            <constraint firstItem="iEn-NR-WwV" firstAttribute="bottom" secondItem="fBm-dN-IdP" secondAttribute="bottom" id="z5R-ua-MFC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UZr-9g-XyQ"/>
                     <connections>
+                        <outlet property="movieName" destination="Dk3-He-pKW" id="air-jP-d51"/>
                         <outlet property="moviePoster" destination="amg-al-XNh" id="Pm1-zc-lzz"/>
+                        <outlet property="movieReleaseDate" destination="kA9-m6-ORq" id="3o1-zK-LJC"/>
                         <outlet property="movieSummary" destination="cuX-wd-vxR" id="tsO-Kq-Aku"/>
-                        <outlet property="movieTitle" destination="Dk3-He-pKW" id="726-PM-yTN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Xs-VU-BmA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1045,6 +1057,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="No-Image-Placeholder" width="612" height="419"/>
         <image name="houses-icons/gryffindor" width="1000" height="1116"/>
         <image name="houses-icons/hufflepuff" width="877" height="972"/>
         <image name="houses-icons/ravenclaw" width="871" height="965"/>
