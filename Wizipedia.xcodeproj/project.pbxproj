@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B2CAA60D2F3258A500BBE859 /* ExpandableLabel in Frameworks */ = {isa = PBXBuildFile; productRef = B2CAA60C2F3258A500BBE859 /* ExpandableLabel */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B2BAD26A2F23C62D00114835 /* Wizipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wizipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CAA60D2F3258A500BBE859 /* ExpandableLabel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = Wizipedia;
 			packageProductDependencies = (
+				B2CAA60C2F3258A500BBE859 /* ExpandableLabel */,
 			);
 			productName = Wizipedia;
 			productReference = B2BAD26A2F23C62D00114835 /* Wizipedia.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = B2BAD2612F23C62D00114835;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B2CAA60B2F3258A500BBE859 /* XCRemoteSwiftPackageReference "ExpandableLabel" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B2BAD26B2F23C62D00114835 /* Products */;
 			projectDirPath = "";
@@ -341,6 +350,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2CAA60B2F3258A500BBE859 /* XCRemoteSwiftPackageReference "ExpandableLabel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kikeenrique/ExpandableLabel.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2CAA60C2F3258A500BBE859 /* ExpandableLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2CAA60B2F3258A500BBE859 /* XCRemoteSwiftPackageReference "ExpandableLabel" */;
+			productName = ExpandableLabel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B2BAD2622F23C62D00114835 /* Project object */;
 }

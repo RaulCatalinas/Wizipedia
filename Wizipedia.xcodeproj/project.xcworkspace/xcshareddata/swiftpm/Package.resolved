@@ -1,0 +1,15 @@
+{
+  "originHash" : "b05cf856aa643f10951ed2024c2e47bb91cc8937af73dca396d2156708c7d9a7",
+  "pins" : [
+    {
+      "identity" : "expandablelabel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kikeenrique/ExpandableLabel.git",
+      "state" : {
+        "revision" : "67c412d545eb96bf0942c0708a4b29ceb5d80413",
+        "version" : "0.6.0"
+      }
+    }
+  ],
+  "version" : 3
+}

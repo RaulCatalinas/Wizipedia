@@ -25,7 +25,9 @@ class Api {
     static func getCharacters(house: House) async -> Characters {
         do {
             let (res, _) = try await URLSession.shared.data(
-                from: URL(string: "\(API_BASE_URL)/characters/house/\(house.rawValue)")!
+                from: URL(
+                    string: "\(API_BASE_URL)/characters/house/\(house.rawValue)"
+                )!
             )
 
             return try JSONDecoder().decode(Characters.self, from: res)
@@ -35,7 +37,7 @@ class Api {
             return []
         }
     }
-    
+
     static func getDetails(for name: String) async -> Character? {
         do {
             let (res, _) = try await URLSession.shared.data(
@@ -84,59 +86,59 @@ class Api {
             return []
         }
     }
-    
+
     static func getAllMovies() async -> Movies {
         do {
             let (res, _) = try await URLSession.shared.data(
                 from: URL(string: "\(API_BASE_URL)/movies")!
             )
-            
+
             return try JSONDecoder().decode(Movies.self, from: res)
         } catch {
             print("Error getting movies: \(error)")
-            
+
             return []
         }
     }
-    
+
     static func getAllBooks() async -> Books {
         do {
             let (res, _) = try await URLSession.shared.data(
                 from: URL(string: "\(API_BASE_URL)/books")!
             )
-            
+
             return try JSONDecoder().decode(Books.self, from: res)
         } catch {
             print("Error getting books: \(error)")
-            
+
             return []
         }
     }
-    
-    static func getMovie(id: Int) async -> Movie? {
+
+    static func getMovie(withId id: String) async -> Movie? {
         do {
             let (res, _) = try await URLSession.shared.data(
                 from: URL(string: "\(API_BASE_URL)/movies/\(id)")!
             )
-            
+
             return try JSONDecoder().decode(Movie.self, from: res)
         } catch {
             print("Error getting movie: \(error)")
-            
+
             return nil
         }
     }
-    
-    static func getBook(id: Int) async -> Book? {
+
+    static func getBook(withId id: String) async -> Book? {
         do {
             let (res, _) = try await URLSession.shared.data(
                 from: URL(string: "\(API_BASE_URL)/books/\(id)")!
             )
-            
+
             return try JSONDecoder().decode(Book.self, from: res)
         } catch {
             print("Error getting book: \(error)")
-            
+
             return nil
         }
     }

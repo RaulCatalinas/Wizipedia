@@ -7,7 +7,9 @@
 
 import UIKit
 
-class MediaViewController: UIInputViewController, UITableViewDataSource {
+class MediaViewController: UIInputViewController, UITableViewDataSource,
+    UITableViewDelegate
+{
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
 
@@ -17,6 +19,7 @@ class MediaViewController: UIInputViewController, UITableViewDataSource {
         super.viewDidLoad()
 
         tableView.dataSource = self
+        tableView.delegate = self
 
         Task {
             if segmentedControl.selectedSegmentIndex == 0 {
@@ -77,6 +80,44 @@ class MediaViewController: UIInputViewController, UITableViewDataSource {
         cell.configure(with: data, indexPath: indexPath)
 
         return cell
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        performSegue(
+            withIdentifier:
+                segmentedControl.selectedSegmentIndex == 0
+                ? "showMovieDetail"
+                : "showBookDetail",
+            sender: indexPath
+        )
+
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = sender as? IndexPath else { return }
+        guard let data else { return }
+
+        var itemId = ""
+
+        switch data {
+        case .movies(let movies):
+            itemId = movies[indexPath.row].serial
+
+        case .books(let books):
+            itemId = books[indexPath.row].serial
+        }
+
+        if segue.identifier == "showMovieDetail" {
+            let movieDatailsVC =
+                segue.destination as! MovieDetailsViewController
+
+            movieDatailsVC.movieID = itemId
+
+        } else if segue.identifier == "showBookDetail" {
+        }
     }
 
 }
