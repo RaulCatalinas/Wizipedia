@@ -41,6 +41,45 @@ export default function TabLayout() {
           )
         }}
       />
+      <Tabs.Screen
+        name="houses"
+        options={{
+          title: 'Houses',
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require('@/assets/icons/houses.svg')}
+              style={{ width: 25, height: 25 }}
+              tintColor={color}
+            />
+          )
+        }}
+      />
+      <Tabs.Screen
+        name="spells"
+        options={{
+          title: 'Spells',
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require('@/assets/icons/spells.svg')}
+              style={{ width: 25, height: 25 }}
+              tintColor={color}
+            />
+          )
+        }}
+      />
+      <Tabs.Screen
+        name="media"
+        options={{
+          title: 'Media',
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require('@/assets/icons/media.svg')}
+              style={{ width: 25, height: 25 }}
+              tintColor={color}
+            />
+          )
+        }}
+      />
     </Tabs>
   )
 }
