@@ -1,6 +1,6 @@
+import { Image } from 'expo-image'
 import { Tabs } from 'expo-router'
 import { HapticTab } from '@/components/haptic-tab'
-import { IconSymbol } from '@/components/ui/icon-symbol'
 import { Colors } from '@/constants/theme'
 import { useColorScheme } from '@/hooks/use-color-scheme'
 
@@ -20,16 +20,24 @@ export default function TabLayout() {
         options={{
           title: 'Home',
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
+            <Image
+              source={require('@/assets/icons/home.svg')}
+              style={{ width: 25, height: 25 }}
+              tintColor={color}
+            />
           )
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="characters"
         options={{
-          title: 'Explore',
+          title: 'Characters',
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="paperplane.fill" color={color} />
+            <Image
+              source={require('@/assets/icons/characters.svg')}
+              style={{ width: 25, height: 25 }}
+              tintColor={color}
+            />
           )
         }}
       />
