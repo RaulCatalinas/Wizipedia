@@ -2,6 +2,7 @@ import { FlatList, View, StyleSheet, Text } from 'react-native'
 import { HOUSES_COLORS } from '@/constants/houses'
 import type { Character } from '@/types/character'
 import CharacterImage from './character-image'
+import Filters from './filters'
 import { ThemedText } from '../themed-text'
 
 type Props = {
@@ -58,15 +59,27 @@ function RenderCharacter({ character }: { character: Character }) {
 
 export default function Characters({ characters }: Props) {
   return (
-    <FlatList
-      data={characters}
-      renderItem={({ item }) => <RenderCharacter character={item} />}
-      keyExtractor={item => item.id}
-    />
+    <View style={styles.container}>
+      <View style={styles.titleContainer}>
+        <ThemedText style={styles.charactersSectionTile}>Characters</ThemedText>
+        <ThemedText style={styles.numberOfCharacters}>
+          {characters.length}
+        </ThemedText>
+      </View>
+      <Filters characters={characters} />
+      <FlatList
+        data={characters}
+        renderItem={({ item }) => <RenderCharacter character={item} />}
+        keyExtractor={item => item.id}
+      />
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   characterContainer: {
     flexDirection: 'row',
     marginBottom: 16,
@@ -89,5 +102,22 @@ const styles = StyleSheet.create({
   characterActor: {
     fontSize: 18,
     color: '#666666'
+  },
+  charactersSectionTile: {
+    fontSize: 32,
+    fontWeight: '600',
+    marginBottom: 20
+  },
+  numberOfCharacters: {
+    backgroundColor: '#333',
+    color: '#fff',
+    height: 25,
+    paddingInline: 8,
+    marginInline: 10,
+    borderRadius: 10
+  },
+  titleContainer: {
+    display: 'flex',
+    flexDirection: 'row'
   }
 })
